@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/categoris/index.css') }}?v={{ time() }}">
+
 <div class="mesh-gradient-bg"></div>
 
 <div class="container-fluid d-flex justify-content-center align-items-center" style="min-height: 85vh; padding: 2rem 0; position: relative; z-index: 2;">
@@ -75,133 +77,6 @@
     </div>
 </div>
 
-<style>
-    .mesh-gradient-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: 
-            radial-gradient(circle at 85% 15%, rgba(79, 70, 229, 0.4) 0%, transparent 55%), 
-            radial-gradient(circle at 15% 85%, rgba(107, 33, 168, 0.35) 0%, transparent 55%);
-        z-index: 1;
-        pointer-events: none;
-        background-color: #f8fafc;
-    }
-
-    .form-control-premium {
-        border: 1px solid #cbd5e1 !important;
-        border-radius: 12px !important;
-        color: #1e293b;
-        font-weight: 500;
-        transition: all 0.2s ease;
-    }
-    .form-control-premium:focus {
-        border-color: #4f46e5 !important;
-        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1) !important;
-        outline: none;
-    }
-
-    .btn-premium-primary {
-        background: linear-gradient(135deg, #4f46e5, #3b82f6) !important;
-        box-shadow: 0 4px 14px rgba(79, 70, 229, 0.25) !important;
-        color: white !important;
-        border: none;
-        border-radius: 12px;
-        font-weight: 600;
-        transition: all 0.2s ease;
-    }
-    .btn-premium-primary:hover {
-        box-shadow: 0 6px 18px rgba(79, 70, 229, 0.35) !important;
-        transform: translateY(-1px);
-    }
-
-    .btn-premium-search {
-        background-color: #4f46e5 !important;
-        color: white !important;
-        border: none;
-        border-radius: 12px;
-        transition: all 0.2s ease;
-    }
-    .btn-premium-search:hover {
-        background-color: #4338ca !important;
-    }
-
-    .badge-folder-icon {
-        background-color: #fffbeb;
-        color: #d97706;
-        padding: 0.35rem 0.5rem;
-        border-radius: 8px;
-        font-size: 0.85rem;
-        border: 1px solid #fef3c7;
-    }
-
-    .premium-row {
-        background-color: #ffffff;
-        transition: all 0.2s ease;
-    }
-    .premium-row:hover {
-        background-color: #f8fafc !important;
-    }
-    .premium-row td {
-        border-bottom: 1px solid #f1f5f9 !important;
-    }
-
-    .btn-action-edit {
-        background-color: #fffbeb !important;
-        color: #d97706 !important;
-        border: 1px solid #fef3c7 !important;
-        padding: 0.35rem 0.75rem;
-        border-radius: 8px;
-        font-size: 0.75rem;
-        transition: all 0.15s ease;
-    }
-    .btn-action-edit:hover {
-        background-color: #fef3c7 !important;
-        color: #b45309 !important;
-    }
-
-    .btn-action-delete {
-        background-color: #fef2f2 !important;
-        color: #dc2626 !important;
-        border: 1px solid #fee2e2 !important;
-        padding: 0.35rem 0.75rem;
-        border-radius: 8px;
-        font-size: 0.75rem;
-        transition: all 0.15s ease;
-    }
-    .btn-action-delete:hover {
-        background-color: #fee2e2 !important;
-        color: #b91c1c !important;
-    }
-</style>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const tombolHapus = document.querySelectorAll('.btn-pemicu-hapus');
-        
-        tombolHapus.forEach(button => {
-            button.addEventListener('click', function () {
-                const formTerdekat = this.closest('.form-hapus-kategori');
-                
-                Swal.fire({
-                    title: 'Hapus kategori ini?',
-                    text: "Menghapus kategori ini dapat memengaruhi data relasi barang yang memakai kelompok ini!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#dc2626',
-                    cancelButtonColor: '#94a3b8',
-                    confirmButtonText: 'Ya, Hapus!',
-                    cancelButtonText: 'Batal',
-                    reverseButtons: true
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        formTerdekat.submit();
-                    }
-                });
-            });
-        });
-    });
-</script>
+<script src="{{ asset('js/index.js') }}?v={{ time() }}"></script>
+<link rel="stylesheet" href="{{ asset('css/categories/index.css') }}?v={{ time() }}">
 @endsection

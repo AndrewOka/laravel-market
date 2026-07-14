@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="mesh-gradient-bg"></div>
+<link rel="stylesheet" href="{{ asset('css/categoris/create.css') }}?v={{ time() }}">
 
+@section('content')
 <div class="d-flex justify-content-center align-items-center position-relative" style="min-height: 75vh; z-index: 2;">
     <div class="card-premium w-100" style="max-width: 480px; border-radius: 24px; background: #ffffff; padding: 2rem; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05); border: 1px solid #e2e8f0;">
         
@@ -24,7 +24,7 @@
                     Kembali
                 </a>
                 
-                <button type="submit" class="btn-premium-primary w-50 py-2.5">
+                <button type="submit" class="btn btn-premium-primary w-50 py-2.5">
                     Simpan Kategori
                 </button>
             </div>
@@ -32,34 +32,4 @@
 
     </div>
 </div>
-
-<style>
-    .mesh-gradient-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: 
-            radial-gradient(circle at 85% 15%, rgba(79, 70, 229, 0.45) 0%, transparent 55%), 
-            radial-gradient(circle at 15% 85%, rgba(107, 33, 168, 0.42) 0%, transparent 55%);
-        z-index: 1;
-        pointer-events: none;
-        background-color: #f1f5f9;
-    }
-
-    .btn-premium-primary {
-        background: linear-gradient(135deg, #4f46e5, #3b82f6) !important;
-        color: white !important;
-        font-weight: 600;
-        border-radius: 12px;
-        border: none;
-        box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3) !important;
-        transition: all 0.2s ease;
-    }
-    .btn-premium-primary:hover {
-        box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4) !important;
-        transform: translateY(-1px);
-    }
-</style>
 @endsection

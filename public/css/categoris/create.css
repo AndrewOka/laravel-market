@@ -1,0 +1,31 @@
+/* Kita pasang background langsung ke elemen body lewat file CSS ini */
+body {
+    background: 
+        radial-gradient(circle at 85% 15%, rgba(79, 70, 229, 0.25) 0%, transparent 55%), 
+        radial-gradient(circle at 15% 85%, rgba(107, 33, 168, 0.22) 0%, transparent 55%),
+        #f1f5f9 !important;
+    background-attachment: fixed;
+}
+
+/* Memaksa wrapper bawaan laravel/bootstrap menjadi transparan */
+#app, main, .py-4, div[class*="content"] {
+    background-color: transparent !important;
+}
+
+.btn-premium-primary {
+    background: linear-gradient(135deg, #4f46e5, #3b82f6) !important;
+    color: white !important;
+    font-weight: 600;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3) !important;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-premium-primary:hover {
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4) !important;
+    transform: translateY(-1px);
+}
