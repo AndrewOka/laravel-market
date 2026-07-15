@@ -22,8 +22,22 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/profile', [AuthController::class, 'profile'])->name('profile');
 
-    // CRUD Otomatis untuk Kategori dan Barang
+    // ------------------------------------------------------------------
+    // ROUTE TAMBAHAN UNTUK KOTAK SAMPAH KATEGORI (Wajib di atas resource categories)
+    // ------------------------------------------------------------------
+    Route::get('categories/trash', [CategoryController::class, 'trash'])->name('categories.trash');
+    Route::post('categories/{id}/restore', [CategoryController::class, 'restore'])->name('categories.restore');
+    Route::delete('categories/{id}/force-delete', [CategoryController::class, 'forceDelete'])->name('categories.force-delete');
+
+    // CRUD Otomatis untuk Kategori
     Route::resource('categories', CategoryController::class);
+
+    // ROUTE TAMBAHAN UNTUK KOTAK SAMPAH BARANG (Wajib di atas resource items)
+    Route::get('items/trash', [ItemController::class, 'trash'])->name('items.trash');
+    Route::post('items/{id}/restore', [ItemController::class, 'restore'])->name('items.restore');
+    Route::delete('items/{id}/force-delete', [ItemController::class, 'forceDelete'])->name('items.force-delete');
+
+    // CRUD Otomatis untuk Barang
     Route::resource('items', ItemController::class);
     
     // Halaman utama setelah login diarahkan ke daftar barang

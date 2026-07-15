@@ -56,4 +56,29 @@ class CategoryController extends Controller
         $category->delete(); // Memicu Soft Delete otomatis
         return redirect()->route('categories.index')->with('danger', 'Kategori berhasil dihapus (Soft Delete)!');
     }
+
+    // 1. Menampilkan Halaman Trash Kategori
+public function trash()
+{
+    $trashedCategories = Category::onlyTrashed()->get();
+    return view('categories.trash', compact('trashedCategories'));
+}
+
+// 2. Mengembalikan Kategori
+public function restore($id)
+{
+    $category = Category::withTrashed()->findOrFail($id);
+    $category->restore();
+
+    return redirect()->route('categories.index')->with('success', 'Kategori berhasil diaktifkan kembali!');
+}
+
+// 3. Hapus Permanen Kategori
+public function forceDelete($id)
+{
+    $category = Category::withTrashed()->findOrFail($id);
+    $category->forceDelete();
+
+    return redirect()->route('categories.trash')->with('success', 'Kategori telah dihapus permanen!');
+}
 }

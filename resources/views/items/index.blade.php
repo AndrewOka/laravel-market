@@ -46,9 +46,15 @@
 
 <div class="card-premium position-relative" style="z-index: 2; border-radius: 24px;">
     <form action="{{ route('items.index') }}" method="GET" class="row g-3 mb-4">
-        <div class="col-md-4 d-flex gap-2">
+        <div class="col-md-5 d-flex gap-2 align-items-center">
             <input type="text" name="search" class="form-control form-control-premium" placeholder="Cari nama barang..." value="{{ request('search') }}" autocomplete="off">
             <button type="submit" class="btn btn-premium-primary px-4">Cari</button>
+            
+            <a href="{{ route('items.trash') }}" class="btn-premium-trash" title="Lihat Kotak Sampah">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
+                </svg>
+            </a>
         </div>
     </form>
 
@@ -108,97 +114,6 @@
         </div>
     @endif
 </div>
-
-<style>
-    .mesh-gradient-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: 
-            radial-gradient(circle at 85% 15%, rgba(79, 70, 229, 0.45) 0%, transparent 55%), 
-            radial-gradient(circle at 15% 85%, rgba(107, 33, 168, 0.42) 0%, transparent 55%);
-        z-index: 1;
-        pointer-events: none;
-        background-color: #f1f5f9;
-    }
-
-    .btn-premium-primary {
-        background: linear-gradient(135deg, #4f46e5, #3b82f6) !important;
-        box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3) !important;
-        color: white !important;
-        border: none;
-        border-radius: 12px;
-        font-weight: 600;
-        padding: 0.6rem 1.25rem;
-    }
-
-    .card-stat-premium {
-        background: #ffffff;
-        border: 1px solid #e2e8f0;
-        border-radius: 20px;
-        padding: 1.5rem;
-        box-shadow: 0 4px 15px rgba(15, 23, 42, 0.02);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .card-stat-premium:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.05);
-    }
-
-    .premium-row {
-        transition: background-color 0.2s ease;
-    }
-    .premium-row:hover {
-        background-color: #f8fafc !important;
-    }
-
-    /* CSS CUSTOM UNTUK PAGINATION KOTAK MODERN */
-    .custom-pagination nav p {
-        display: none !important; /* Hilangkan teks "Showing X to Y..." */
-    }
-    .custom-pagination .pagination {
-        gap: 6px;
-        margin: 0;
-        padding: 0;
-    }
-    .custom-pagination .page-item .page-link {
-        background-color: #ffffff !important;
-        color: #4f46e5 !important;
-        border: 1px solid #e2e8f0 !important;
-        border-radius: 10px !important;
-        width: 38px;
-        height: 38px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 600;
-        font-size: 0.9rem;
-        transition: all 0.2s ease;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
-    }
-    /* Hover tombol */
-    .custom-pagination .page-item .page-link:hover {
-        background-color: #f1f5f9 !important;
-        border-color: #cbd5e1 !important;
-    }
-    /* Tombol Aktif (Halaman saat ini) - Mengikuti warna tema biru-ungu premium */
-    .custom-pagination .page-item.active .page-link {
-        background: linear-gradient(135deg, #4f46e5, #3b82f6) !important;
-        color: #ffffff !important;
-        border: none !important;
-        box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25) !important;
-    }
-    /* Tombol ketika dinonaktifkan (Disabled) */
-    .custom-pagination .page-item.disabled .page-link {
-        background-color: #f8fafc !important;
-        color: #cbd5e1 !important;
-        border-color: #e2e8f0 !important;
-        opacity: 0.6;
-    }
-</style>
-
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const tombolHapus = document.querySelectorAll('.btn-pemicu-hapus');
@@ -226,4 +141,5 @@
         });
     });
 </script>
+<link rel="stylesheet" href="{{ asset('css/items/index.css') }}?v={{ time() }}">
 @endsection

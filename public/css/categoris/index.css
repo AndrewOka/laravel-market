@@ -1,70 +1,99 @@
-.mesh-gradient-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    /* Kita gabungkan warna solid #f1f5f9 dengan gradient ungunya di sini */
-    background: 
-        radial-gradient(circle at 85% 15%, rgba(79, 70, 229, 0.45) 0%, transparent 55%), 
-        radial-gradient(circle at 15% 85%, rgba(107, 33, 168, 0.42) 0%, transparent 55%),
-        #f1f5f9;
-    z-index: 1;
-    pointer-events: none;
-}
+  .mesh-gradient-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: 
+            radial-gradient(circle at 85% 15%, rgba(79, 70, 229, 0.4) 0%, transparent 55%), 
+            radial-gradient(circle at 15% 85%, rgba(107, 33, 168, 0.35) 0%, transparent 55%);
+        z-index: 1;
+        pointer-events: none;
+        background-color: #f8fafc;
+    }
 
-/* 1. Tombol Cari (Search) */
-.btn-premium-search {
-    background-color: #f1f5f9 !important;
-    color: #4f46e5 !important;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 12px !important;
-    transition: all 0.2s ease;
-}
-.btn-premium-search:hover {
-    background-color: #e2e8f0 !important;
-    color: #3730a3 !important;
-}
+    .form-control-premium {
+        border: 1px solid #cbd5e1 !important;
+        border-radius: 12px !important;
+        color: #1e293b;
+        font-weight: 500;
+        transition: all 0.2s ease;
+    }
+    .form-control-premium:focus {
+        border-color: #4f46e5 !important;
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1) !important;
+        outline: none;
+    }
 
-/* 2. Tombol Aksi - Edit (Warna Indigo Soft) */
-.btn-action-edit {
-    background-color: #e0e7ff !important;
-    color: #4f46e5 !important;
-    border: none !important;
-    border-radius: 8px !important;
-    padding: 0.4rem 0.85rem !important;
-    font-size: 0.8rem !important;
-    transition: all 0.2s ease;
-}
-.btn-action-edit:hover {
-    background-color: #c7d2fe !important;
-    color: #3730a3 !important;
-    transform: translateY(-1px);
-}
+    .btn-premium-primary {
+        background: linear-gradient(135deg, #4f46e5, #3b82f6) !important;
+        box-shadow: 0 4px 14px rgba(79, 70, 229, 0.25) !important;
+        color: white !important;
+        border: none;
+        border-radius: 12px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+    }
+    .btn-premium-primary:hover {
+        box-shadow: 0 6px 18px rgba(79, 70, 229, 0.35) !important;
+        transform: translateY(-1px);
+    }
 
-/* 3. Tombol Aksi - Hapus (Warna Merah/Rose Soft) */
-.btn-action-delete {
-    background-color: #ffe4e6 !important;
-    color: #e11d48 !important;
-    border: none !important;
-    border-radius: 8px !important;
-    padding: 0.4rem 0.85rem !important;
-    font-size: 0.8rem !important;
-    transition: all 0.2s ease;
-}
-.btn-action-delete:hover {
-    background-color: #fecdd3 !important;
-    color: #be123c !important;
-    transform: translateY(-1px);
-}
+    .btn-premium-search {
+        background-color: #4f46e5 !important;
+        color: white !important;
+        border: none;
+        border-radius: 12px;
+        transition: all 0.2s ease;
+    }
+    .btn-premium-search:hover {
+        background-color: #4338ca !important;
+    }
 
-/* 4. Perbaikan Input Form Premium Agar Lebih Selaras */
-.form-control-premium {
-    border-radius: 12px !important;
-    border: 1px solid #e2e8f0 !important;
-    transition: all 0.2s ease;
-}
-.form-control-premium:focus {
-    border-color: #4f46e5 !important;
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1) !important;
-}
+    .badge-folder-icon {
+        background-color: #fffbeb;
+        color: #d97706;
+        padding: 0.35rem 0.5rem;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        border: 1px solid #fef3c7;
+    }
+
+    .premium-row {
+        background-color: #ffffff;
+        transition: all 0.2s ease;
+    }
+    .premium-row:hover {
+        background-color: #f8fafc !important;
+    }
+    .premium-row td {
+        border-bottom: 1px solid #f1f5f9 !important;
+    }
+
+    .btn-action-edit {
+        background-color: #fffbeb !important;
+        color: #d97706 !important;
+        border: 1px solid #fef3c7 !important;
+        padding: 0.35rem 0.75rem;
+        border-radius: 8px;
+        font-size: 0.75rem;
+        transition: all 0.15s ease;
+    }
+    .btn-action-edit:hover {
+        background-color: #fef3c7 !important;
+        color: #b45309 !important;
+    }
+
+    .btn-action-delete {
+        background-color: #fef2f2 !important;
+        color: #dc2626 !important;
+        border: 1px solid #fee2e2 !important;
+        padding: 0.35rem 0.75rem;
+        border-radius: 8px;
+        font-size: 0.75rem;
+        transition: all 0.15s ease;
+    }
+    .btn-action-delete:hover {
+        background-color: #fee2e2 !important;
+        color: #b91c1c !important;
+    }

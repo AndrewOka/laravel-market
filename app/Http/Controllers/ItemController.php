@@ -68,6 +68,35 @@ class ItemController extends Controller
     {
         $item->delete(); 
         
-        return redirect()->route('items.index')->with('success', 'Barang berhasil dihapus dari sistem!');
+        return redirect()->route('items.index')->with('success', 'Barang berhasil dipindahkan ke kotak sampah!');
+    }
+
+    /* ========================================================
+       METHOD TAMBAHAN KHUSUS SOFT DELETE (KOTAK SAMPAH)
+       ======================================================== */
+
+    // 1. Menampilkan Halaman List Barang Yang Dihapus Sementara
+    public function trash()
+    {
+        $trashedItems = Item::onlyTrashed()->get();
+        return view('items.trash', compact('trashedItems'));
+    }
+
+    // 2. Mengembalikan barang dari kotak sampah ke data aktif
+    public function restore($id)
+    {
+        $item = Item::withTrashed()->findOrFail($id);
+        $item->restore();
+
+        return redirect()->route('items.index')->with('success', 'Barang berhasil dikembalikan!');
+    }
+
+    // 3. Menghapus barang secara permanen dari database
+    public function forceDelete($id)
+    {
+        $item = Item::withTrashed()->findOrFail($id);
+        $item->forceDelete();
+
+        return redirect()->route('items.trash')->with('success', 'Barang telah dihapus secara permanen!');
     }
 }
