@@ -8,20 +8,27 @@ use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
-    public function index(Request $request)
-    {
-        $search = $request->get('search');
-        
-        // Ambil data barang beserta relasi kategorinya 
-        $items = Item::with('category')
-            ->when($search, function ($query, $search) {
-                return $query->where('name', 'like', "%{$search}%");
-            })
-            ->paginate(5)
-            ->withQueryString();
+ public function index(Request $request)
+{
+    // 1. Tangkap input pencarian sesuai atribut name di blade ('search')
+    $search = $request->input('search'); 
 
-        return view('items.index', compact('items'));
+    // 2. Buat query dasar
+    $query = Item::query();
+
+    // 3. Jika user mengetikkan sesuatu di kolom search
+    if ($search) {
+        $query->where('name', 'LIKE', "%{$search}%");
+        // Catatan: Pastikan 'name' di atas sesuai dengan nama kolom 
+        // nama barang di database kamu (di blade kamu tertulis $item->name)
     }
+
+    // 4. Urutkan berdasarkan data terbaru (paling atas) dan pakai paginate
+    $items = $query->latest()->paginate(5);
+
+    // 5. Kirim data ke view
+    return view('items.index', compact('items'));
+}
 
     public function create()
     {

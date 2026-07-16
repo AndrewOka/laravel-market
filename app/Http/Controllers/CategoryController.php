@@ -15,6 +15,7 @@ class CategoryController extends Controller
         $categories = Category::when($search, function ($query, $search) {
                 return $query->where('name', 'like', "%{$search}%");
             })
+            ->latest()
             ->paginate(5)
             ->withQueryString();
 
