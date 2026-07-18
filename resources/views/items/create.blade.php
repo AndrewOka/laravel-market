@@ -16,6 +16,15 @@
             @csrf
 
             <div class="mb-3">
+    <label for="code" class="form-label fw-semibold text-secondary small mb-2">Kode Barang</label>
+    <input type="text" name="code" id="code" class="form-control form-control-premium text-muted" 
+           value="{{ old('code', $autoCode) }}" readonly style="background-color: #f8fafc; cursor: not-allowed;">
+    @error('code')
+        <div class="text-danger small mt-1">{{ $message }}</div>
+    @enderror
+</div>
+
+            <div class="mb-3">
                 <label class="form-label fw-bold text-secondary small mb-1.5">Nama Barang</label>
                 <input type="text" name="name" class="form-control-premium w-100" placeholder="Contoh: Kemeja Flanel" required autocomplete="off" style="border-radius: 12px; padding: 0.6rem 1rem; border: 1px solid #cbd5e1;">
             </div>
@@ -31,22 +40,28 @@
             </div>
 
             <div class="row g-3 mb-4">
-                <div class="col-md-6">
-                    <label class="form-label fw-bold text-secondary small mb-1.5">Harga Satuan (Rp)</label>
-                    <div class="input-group">
-                        <span class="input-group-text bg-light border-end-0" style="border-radius: 12px 0 0 12px; border-color: #cbd5e1; font-weight: 600; font-size: 0.9rem; color: #64748b;">Rp</span>
-                        <input type="number" name="price" class="form-control-premium border-start-0" style="border-radius: 0 12px 12px 0; padding: 0.6rem 1rem; border: 1px solid #cbd5e1;" placeholder="0" min="0" required>
-                    </div>
-                </div>
+    <div class="col-md-6">
+        <label for="price" class="form-label fw-semibold text-secondary small mb-2">Harga Satuan</label>
+        <div class="input-group input-group-premium">
+            <span class="input-group-text premium-addon">Rp</span>
+            <input type="number" name="price" id="price" class="form-control form-control-premium" placeholder="0" min="0" value="{{ old('price') }}" required autocomplete="off">
+        </div>
+        @error('price')
+            <div class="text-danger small mt-1">{{ $message }}</div>
+        @enderror
+    </div>
 
-                <div class="col-md-6">
-                    <label class="form-label fw-bold text-secondary small mb-1.5">Jumlah Stok</label>
-                    <div class="input-group">
-                        <input type="number" name="stock" class="form-control-premium border-end-0" style="border-radius: 12px 0 0 12px; padding: 0.6rem 1rem; border: 1px solid #cbd5e1;" placeholder="0" min="0" required>
-                        <span class="input-group-text bg-light border-start-0" style="border-radius: 0 12px 12px 0; border-color: #cbd5e1; font-weight: 600; font-size: 0.9rem; color: #64748b;">Pcs</span>
-                    </div>
-                </div>
-            </div>
+    <div class="col-md-6">
+        <label for="stock" class="form-label fw-semibold text-secondary small mb-2">Jumlah Stok</label>
+        <div class="input-group input-group-premium">
+            <input type="number" name="stock" id="stock" class="form-control form-control-premium text-end" placeholder="0" min="0" value="{{ old('stock') }}" required autocomplete="off">
+            <span class="input-group-text premium-addon">Pcs</span>
+        </div>
+        @error('stock')
+            <div class="text-danger small mt-1">{{ $message }}</div>
+        @enderror
+    </div>
+</div>
 
             <div class="d-flex gap-3 mt-2">
                 <a href="{{ route('items.index') }}" class="btn btn-light fw-bold w-50 py-2.5 text-secondary" style="border-radius: 12px; font-size: 0.95rem; border: 1px solid #e2e8f0; transition: all 0.2s;">

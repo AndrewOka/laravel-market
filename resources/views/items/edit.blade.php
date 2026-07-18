@@ -17,6 +17,12 @@
             @method('PUT')
 
             <div class="mb-3">
+    <label for="code" class="form-label fw-semibold text-secondary small mb-2">Kode Barang</label>
+    <input type="text" name="code" id="code" class="form-control form-control-premium text-muted" 
+           value="{{ old('code', $item->code) }}" readonly style="background-color: #f8fafc; cursor: not-allowed;">
+</div>
+
+            <div class="mb-3">
                 <label for="name" class="form-label-premium">Nama Barang</label>
                 <input type="text" name="name" id="name" class="form-control form-control-premium @error('name') is-invalid @enderror" value="{{ old('name', $item->name) }}" placeholder="Contoh: TV Samsung" required autocomplete="off">
                 @error('name')

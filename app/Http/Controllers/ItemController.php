@@ -29,13 +29,16 @@ class ItemController extends Controller
     // 5. Kirim data ke view
     return view('items.index', compact('items'));
 }
+public function create()
+{
+    $categories = Category::all();
 
-    public function create()
-    {
-        // Ambil semua kategori untuk pilihan dropdown di form input barang
-        $categories = Category::all();
-        return view('items.create', compact('categories'));
-    }
+    // HANYA ANGKA: Menggunakan kombinasi Tahun, Bulan, Tanggal, Jam, Menit, Detik
+    // Hasilnya murni angka unik seperti: 2607180915
+    $autoCode = date('ymdHis'); 
+
+    return view('items.create', compact('categories', 'autoCode'));
+}
 
     public function store(Request $request)
     {
