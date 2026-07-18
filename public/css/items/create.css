@@ -11,17 +11,44 @@
         pointer-events: none;
         background-color: #f1f5f9;
     }
+/* Styling Input Group Premium */
+.input-group-premium {
+    border-radius: 12px !important;
+    overflow: hidden;
+    border: 1.5px solid #cbd5e1;
+    transition: all 0.2s ease;
+    background-color: #ffffff;
+}
 
-    .btn-premium-primary {
-        background: linear-gradient(135deg, #4f46e5, #3b82f6) !important;
-        color: white !important;
-        font-weight: 600;
-        border-radius: 12px;
-        border: none;
-        box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3) !important;
-        transition: all 0.2s ease;
-    }
-    .btn-premium-primary:hover {
-        box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4) !important;
-        transform: translateY(-1px);
-    }
+/* Menghilangkan border default bawaan bootstrap pada input di dalam group */
+.input-group-premium .form-control-premium {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0.75rem 1rem !important;
+}
+
+/* Fokus state saat input diklik */
+.input-group-premium:focus-within {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+}
+
+/* Pengaturan Teks Tambahan (Rp & Pcs) */
+.premium-addon {
+    background-color: #f8fafc !important;
+    color: #64748b !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: none !important;
+    padding: 0 1.25rem !important;
+    display: flex;
+    align-items: center;
+}
+
+/* Border tipis pemisah internal */
+.input-group-premium .premium-addon:first-child {
+    border-right: 1px solid #e2e8f0 !important;
+}
+.input-group-premium .premium-addon:last-child {
+    border-left: 1px solid #e2e8f0 !important;
+}

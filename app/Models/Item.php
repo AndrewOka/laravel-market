@@ -10,7 +10,7 @@ class Item extends Model
 {
     use SoftDeletes; // Mengaktifkan soft delete
 
-    protected $fillable = ['category_id', 'name', 'price', 'stock'];
+    protected $fillable = ['code', 'name', 'category_id', 'price', 'stock'];
 
     // Relasi: Barang ini milik sebuah kategori (Belongs To)
     public function category(): BelongsTo

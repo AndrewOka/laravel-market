@@ -60,21 +60,29 @@
 
     <div class="table-responsive">
         <table class="table table-hover align-middle mb-0" style="border-collapse: separate; border-spacing: 0 4px;">
-            <thead class="table-light text-uppercase fs-7 text-secondary" style="letter-spacing: 0.75px; font-size: 0.8rem;">
-                <tr>
-                    <th class="py-3 px-4" style="border-radius: 10px 0 0 10px;">Nama Barang</th>
-                    <th class="py-3">Kategori</th>
-                    <th class="py-3">Harga</th>
-                    <th class="py-3">Stok</th>
-                    <th class="py-3 text-end px-4" style="border-radius: 0 10px 10px 0;">Aksi</th>
-                </tr>
-            </thead>
+           <thead class="table-light text-uppercase fs-7 text-secondary" style="letter-spacing: 0.75px; font-size: 0.8rem;">
+    <tr>
+        <th class="py-3 px-4" style="border-radius: 10px 0 0 10px;">Nama Barang / Kode</th>
+        <th class="py-3">Kategori</th>
+        <th class="py-3">Harga</th>
+        <th class="py-3">Stok</th>
+        <th class="py-3 text-end px-4" style="border-radius: 0 10px 10px 0;">Aksi</th>
+    </tr>
+</thead>
             <tbody>
                 @forelse($items as $item)
                 <tr class="premium-row">
-                    <td class="fw-bold py-3.5 px-4 text-dark">
-                        {{ $item->name }}
-                    </td>
+<td class="py-3 px-4">
+    <div class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">{{ $item->name }}</div>
+    
+    @if($item->code)
+        <span class="text-muted font-monospace" style="font-size: 0.75rem; letter-spacing: 0.5px;">
+            {{ str_replace('BRG-', '', $item->code) }}
+        </span>
+    @else
+        <span class="text-danger italic" style="font-size: 0.75rem;">Kode belum diset</span>
+    @endif
+</td>
                     <td>
                         <span class="badge bg-light text-primary border border-primary-subtle px-3 py-1.5 rounded-pill fw-semibold" style="font-size: 0.8rem;">
                             {{ $item->category->name ?? 'Tanpa Kategori' }}
